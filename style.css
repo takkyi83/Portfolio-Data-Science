@@ -1,4 +1,13 @@
 /* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header-image {
+    width: 100%;
+}
+
 .div {
     width: 300px;
     align: "center"
