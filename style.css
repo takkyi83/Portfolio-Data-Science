@@ -4,10 +4,17 @@ body {
     padding: 0;
 }
 
+.container {
+    max-width: 60%;
+    margin: 0 auto;
+    padding: 0 20%;
+}
+
 .header-image {
     max-width: 100%;
     height: auto;
 }
+
 
 .div {
     width: 300px;
