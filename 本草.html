@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Decrypt Compendium of Materia Medica: Ancient Chinese unstructured text exploration , medicinal material
+        , database construction and visual exploration analysis</h1>
+    <img src="header2.1.jpg" class="header-image" alt="Header Image">
+
+    <p>
+        Traditional Chinese medicine (TCM) is said to have a history of thousands of years. The story of Shen Nong
+        tasting hundreds of herbs is no longer verifiable, but what cannot be denied is that TCM is built upon the
+        wisdom recorded by ancient people through continuous experimentation with various animals, plants, and even
+        minerals. The majority of TCM sources come from medicinal herbs of plant origin, and their usage is widespread.
+        Despite the long and profound history of TCM, in modern medical history, Western medicine and pharmaceuticals
+        have taken the spotlight. This is partly because Western medicine often provides immediate effects and follows
+        a systematic and scientific approach to record and verify its practices. In contrast, TCM prescriptions vary for
+        different practitioners and even for the same condition, leading to a perception of unreliability. However, with
+        the progress of technology and the rapid and extensive dissemination of information in today's era, along with
+        the introduction of Western scientific methods, the education of TCM practitioners has shifted from an
+        apprenticeship system to a more professional, academic, and internationalized approach. Additionally, with the
+        maturity of information technology, utilizing these techniques to handle unstructured TCM data will undoubtedly
+        promote the modernization of TCM.
+    </p>
+
+    <p>
+        <strong> Objectives: </strong>
+        To organize and analyze the unstructured data in the field of TCM, this study initially focuses on analyzing a
+        single ancient text. The chosen text is the most representative work, "Compendium of Materia Medica." This
+        selection is based on its widespread recognition as an ancient TCM text and because it represents the wisdom
+        extracted by Li Shizhen from multiple ancient texts. For this study, the "Compendium of Materia Medica" provides
+        sufficient depth and breadth. The primary objectives of this research are as follows:
+        <ul>
+        <li>
+            1. Establish a structured TCM database to transform unstructured ancient texts into easily analyzable data.
+        </li>
+        <li>
+            2. Investigate the relationships and clusters among medicinal herbs, diseases, and prescriptions in the
+            "Compendium of Materia Medica" using algorithms and machine learning.
+        </li>
+        <li>
+            3. Compare the research findings with the general public's usage and understanding of TCM.
+        </li>
+        </ul>
+        By achieving these objectives, the research results can provide experimental verification and data inquiry for
+        non-professionals interested in TCM and medical institutions with questions about herbal medicine prescriptions.
+        Ultimately, when all the data is organized, it will form a big data platform for TCM.
+    </p>
+    <strong>Research Methodologies</strong>
+        The data source of this study is the full text of "Compendium of Materia Medica", which is divided into 16 volumes
+        , with 1892 kinds of medicines and 11096 prescriptions. The tools used are Python, MySQL, Tableau, and Flask.
+    <br>
+    <img src="本草-項目流程圖.jpg", alt="Research Method Flow Chart">
+
+    <p>
+        This study starts with data cleaning, and uses Python regular expressions for data extraction.
+        Then, the preprocessed data is used to build a Chinese medicine database using MySQL. LDA clustering analysis
+        and Apriori correlation analysis are used for data analysis, and then Tableau software is used for visual
+        exploration and analysis of the Chinese medicine database.
+    </p>
+
+    <strong>Data Cleaning</strong>
+    <p>
+        Compendium of Materia Medica belongs to unstructured textual data (not neatly formatted data tables). The data is consisted by free-form text, and paragraphs. Due to the unstructured and noisy nature of text data, it is difficult to directly apply machine learning methods to it. We converted unstructured text data into structured text data by finding content rules and extracting data using Regular Expression.
+    </p>
+    <strong>Common issues of unstrctured text data</strong>
+    <ul>
+        <li>1. Data Missing</li>
+        <img src="unrecognised-text-issues.jpg", alt="unrecognised-text-issues">
+    </ul>
+</div>
+</body>
+</html>
