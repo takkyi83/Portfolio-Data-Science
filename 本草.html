@@ -83,7 +83,7 @@
         <li>
             1. Convert table of contents, titles, and content into structured formats
             Contents: <br>
-            <img src="data-structuring.png", alt="data structuring">
+            <img src="data-structuring.png", alt="data structuring"> <br>
             After reading the text, it is found that the table of contents, title, and content follow the following rules
             <table>
                 <tr>
@@ -99,26 +99,45 @@
                 <tr>
                     <td>Content, Indent content</td>
                 </tr>
+            </table> <br>
+            Use regular expression to extract table of contents, title, and content. <br>
+            <img src="extract-content.png", alt="extract content"> <br>
+            Convert table of content, titles, and content to structured format <br>
+            <img src="convert-to-structured-format.png", alt="convert to structured format"><br>
+        </li>
+        <li>
+            2. Convert aliases, nature and taste, indications, prescriptions, and parts into formatted formats <br>
+            Content: <br>
+            <img src="convert-aliases.png", alt="convert aliases"> <br>
+
+            Use Regular Expression to extract aliases, nature and taste, indications, prescriptions, and parts.<br>
+            <img src="regex-extract-aliases.png", alt="use regex to extract aliases"> <br>
+
+            Convert aliases, nature and taste, indications, prescriptions, and parts into structured format.<br>
+            <img src="format-aliases.png", alt="format aliases"><br>
+        </li>
+        <li>
+            3. Convert nature and taste levels into structured format.<br>
+            Content<br>
+            <img src="taste-text.png", alt="taste levels">
+            Score the taste levels from 0 to 3. 0 as the weakest and 3 as the strongest.<br>
+            <table>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Scores</th>
+                </tr>
+                <tr>
+                    <td>Table of contents, It's followed by a blank line</td>
+                </tr>
+                <tr>
+                    <td>Title, It's followed by indented content</td>
+                </tr>
+                <tr>
+                    <td>Content, Indent content</td>
+                </tr>
             </table>
-            Use regular expression to extract table of contents, title, and content.
-            <img src="extract-content.png", alt="extract content">
-            Convert table of content, titles, and content to structured format
-            <img src="convert-to-structured-format.png", alt="convert to structured format">
-        </li>
-        <li>
-            2. Convert aliases, nature and taste, indications, prescriptions, and parts into formatted formats
-            Content:
-            <img src="convert-aliases.png", alt="convert aliases">
-
-            Use Regular Expression to extract aliases, nature and taste, indications, prescriptions, and parts.
-            <img src="regex-extract-aliases.png", alt="use regex to extract aliases">
-
-            Convert aliases, nature and taste, indications, prescriptions, and parts into structured format.
-            <img src="format-aliases.png", alt="format aliases">
-        </li>
-        <li>
-            3. Convert nature and taste levels into structured format.
-            Content
+            <br>
+            Use Regular Expression to extract the taste and nature levels.
 
         </li>
 
