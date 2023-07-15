@@ -63,6 +63,7 @@
         exploration and analysis of the Chinese medicine database.
     </p>
 
+    <p>
     <strong>Data Cleaning</strong>
     <p>
         Compendium of Materia Medica belongs to unstructured textual data (not neatly formatted data tables). The data is consisted by free-form text, and paragraphs. Due to the unstructured and noisy nature of text data, it is difficult to directly apply machine learning methods to it. We converted unstructured text data into structured text data by finding content rules and extracting data using Regular Expression.
@@ -70,8 +71,48 @@
     <strong>Common issues of unstrctured text data</strong>
     <ul>
         <li>1. Data Missing</li>
-        <img src="unstructured-text-issues.jpg", alt="unstructured-text-issues">
+        <img src="unstructured-text-issues.jpg", alt="unstructured text issues">
+        <li>2. Wrong Format</li>
+        <img src="hard-to-see-patterns.jpg", alt="Hard to see patterns">
     </ul>
+    </p>
+
+    <p>
+    <strong>Data Structuring </strong>
+    <ul>
+        <li>
+            1. Convert table of contents, titles, and content into structured formats
+            Contents: <br>
+            <img src="data-structuring.png", alt="data structuring">
+            After reading the text, it is found that the table of contents, title, and content follow the following rules
+            <table>
+                <tr>
+                    <th>Items</th>
+                    <th>Rules</th>
+                </tr>
+                <tr>
+                    <td>Table of contents, It's followed by a blank line</td>
+                </tr>
+                <tr>
+                    <td>Title, It's followed by indented content</td>
+                </tr>
+                <tr>
+                    <td>Content, Indent content</td>
+                </tr>
+            </table>
+            Use regular expression to extract table of contents, title, and content.
+            <img src="extract-content.png", alt="extract content">
+            Convert table of content, titles, and content to structured format
+            <img src="convert-to-structured-format.png", alt="convert to structured format">
+
+        </li>
+
+
+    </ul>
+    </p>
+
+    Text content:
+
 參考：
     https://docs.google.com/document/d/1s-OWEO2XJwpRMZHgImGYmBns99UHFrUk/edit
     https://docs.google.com/presentation/d/1c6-ju0gYcwwg254prhcUZ47gW0nj7qJ_/edit#slide=id.p4
