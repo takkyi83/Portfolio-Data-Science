@@ -39,7 +39,7 @@
             1. Establish a structured TCM database to transform unstructured ancient texts into easily analyzable data.
         </li>
         <li>
-            2. Investigate the relationships and clusters among medicinal herbs, diseases, and prescriptions in the
+            2. Investigate the relationships and clusters among medicinal herbs, diseases, and compounds in the
             "Compendium of Materia Medica" using algorithms and machine learning.
         </li>
         <li>
@@ -52,7 +52,7 @@
     </p>
     <strong>Research Methodologies</strong>
         The data source of this study is the full text of "Compendium of Materia Medica", which is divided into 16 volumes
-        , with 1892 kinds of medicines and 11096 prescriptions. The tools used are Python, MySQL, Tableau, and Flask.
+        , with 1892 kinds of medicines and 11096 compounds. The tools used are Python, MySQL, Tableau, and Flask.
     <br>
     <img src="本草-項目流程圖.jpg", alt="Research Method Flow Chart">
 
@@ -63,7 +63,6 @@
         exploration and analysis of the Chinese medicine database.
     </p>
 
-    <p>
     <strong>Data Cleaning</strong>
     <p>
         Compendium of Materia Medica belongs to unstructured textual data (not neatly formatted data tables). The data is consisted by free-form text, and paragraphs. Due to the unstructured and noisy nature of text data, it is difficult to directly apply machine learning methods to it. We converted unstructured text data into structured text data by finding content rules and extracting data using Regular Expression.
@@ -80,6 +79,7 @@
     <p>
     <strong>Data Structuring </strong>
     <ul>
+    <p>
         <li>
             1. Convert table of contents, titles, and content into structured formats
             Contents: <br>
@@ -91,13 +91,16 @@
                     <th>Rules</th>
                 </tr>
                 <tr>
-                    <td>Table of contents, It's followed by a blank line</td>
+                    <td>Table of contents</td>
+                    <td>It's followed by a blank line</td>
                 </tr>
                 <tr>
-                    <td>Title, It's followed by indented content</td>
+                    <td>Title</td>
+                    <td>It's followed by indented content</td>
                 </tr>
                 <tr>
                     <td>Content, Indent content</td>
+                    <td>Indent content</td>
                 </tr>
             </table> <br>
 
@@ -106,17 +109,21 @@
             Convert table of content, titles, and content to structured format <br>
             <img src="convert-to-structured-format.png", alt="convert to structured format"><br>
         </li>
+    </p>
+    <p>
         <li>
-            2. Convert aliases, nature and taste, indications, prescriptions, and parts into formatted formats <br>
+            2. Convert aliases, nature and taste, indications, compound, and parts into formatted formats <br>
             Content: <br>
             <img src="convert-aliases.png", alt="convert aliases"> <br>
 
-            Use Regular Expression to extract aliases, nature and taste, indications, prescriptions, and parts.<br>
+            Use Regular Expression to extract aliases, nature and taste, indications, compound, and parts.<br>
             <img src="regex-extract-aliases.png", alt="use regex to extract aliases"> <br>
 
-            Convert aliases, nature and taste, indications, prescriptions, and parts into structured format.<br>
+            Convert aliases, nature and taste, indications, compound, and parts into structured format.<br>
             <img src="format-aliases.png", alt="format aliases"><br>
         </li>
+    </p>
+    <p>
         <li>
             3. Convert nature and taste levels into structured format.<br>
             Content<br>
@@ -128,22 +135,38 @@
                     <th>Scores</th>
                 </tr>
                 <tr>
-                    <td>Poison, It's followed by a blank line</td>
+                    <td>Slightly cold</td>
+                    <td>1</td>
                 </tr>
                 <tr>
-                    <td>Title, It's followed by indented content</td>
+                    <td>Cold</td>
+                    <td>2</td>
                 </tr>
                 <tr>
-                    <td>Content, Indent content</td>
+                    <td>Very Cold</td>
+                    <td>3</td>
                 </tr>
             </table>
             <br>
             Use Regular Expression to extract the taste and nature levels.
-
+            <img src="extract-taste-levels.png", alt="extract taste levels"> <br>
+            Convert the levels of nature and taste to formatted text. <br>
+            <img src="format-levels.png", alt="format levels"> <br>
         </li>
-
-    </ul>
     </p>
+    <p>
+        <li>
+            4. Convert compound to structured format <br>
+            Content<br>
+            <img src="format-prescription.png", alt="prescription formatting"><br>
+            Extract presription titles and descriptions with regular expression <br>
+            <img src="prescription-regex.png", alt="prescription regex"><br>
+            Convert compound and description to formatted text<br>
+            <img src="compound-formatted.png", alt="compound formatted text">
+        </li>
+    </p>
+    </ul>
+
 
     Text content:
 
