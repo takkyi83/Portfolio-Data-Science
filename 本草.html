@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <title>Project Page</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -9,8 +9,9 @@
 <div class="container">
     <h1>Decrypt Compendium of Materia Medica: Ancient Chinese unstructured text exploration , medicinal material
         , database construction and visual exploration analysis</h1>
-    <img src="header2.1.jpg" class="header-image" alt="Header Image">
-
+    <div class="image-container">
+    <img src="本草海報.jpeg" class="header-image" alt="Header Image" width="600" height="3000" class="centered-image">
+    </div>
     <p>
         Traditional Chinese medicine (TCM) is said to have a history of thousands of years. The story of Shen Nong
         tasting hundreds of herbs is no longer verifiable, but what cannot be denied is that TCM is built upon the
@@ -158,7 +159,7 @@
         <li>
             4. Convert compound to structured format <br>
             Content<br>
-            <img src="format-prescription.png", alt="prescription formatting"><br>
+            <img src="format-prescription.png", alt="prescription formatting" width=700 height="300"><br>
             Extract presription titles and descriptions with regular expression <br>
             <img src="prescription-regex.png", alt="prescription regex"><br>
             Convert compound and description to formatted text<br>
@@ -167,8 +168,41 @@
     </p>
     </ul>
     <p>
-        <h2>Building a relationship database</h2>
+        <h2>Building a relational database</h2>
+        The database comprises multiple tables containing information on Chinese herbal medicine and diseases. The structured text will be utilised to establish a relational database for facilitating future analysis.<br><br>
+        <strong>Database entity-relationship model</strong><br>
+        <img src="er-model.png", alt="database er model"><br>
+        <strong>Database Relational Diagram</strong>
+        <img src="db-diagram.png" alt="database relationship diagram"><br>
+    </p>
+    <p>
+    <h2>Data Analysis</h2>
+    <ul>
+        <strong>1. Latent Dirichlet Allocation (LDA)</strong><br>
+        LDA is an unsupervised machine learning technique used to uncover underlying topic information within extensive document collections or corpora.
 
+        It utilizes the "bag of words" approach, treating each document as a frequency vector, thereby converting text information into easily modeled numerical data. However, the bag of words approach disregards the order of words, which simplifies the problem while also presenting an opportunity for model enhancement. Each document represents a probability distribution of constituent topics, while each topic represents a probability distribution of numerous words.<br>
+        <img src="lda.png" alt="lda"><br>
+        <p>
+        <Strong>Use LDA to cluster diseases</Strong><br>
+        We used the LDA clustering method to extract distinct features of disease names, which are then grouped into 2 to 45 clusters. Currently, the maximum number of clusters achieved is 45. Expert consultation from relevant domains revealed that the results obtained with 45 clusters are the most easily interpretable. Moreover, experiments were conducted with more than 45 clusters to observe their outcomes.
+        </p>
+    </ul>
+    <ul>
+        <strong>2. Use Apriori to find connections between medicines</strong><br>
+        <p>
+        Within traditional Chinese medicine, the principle of compatibility known as the "Seven Emotions"(七情配伍) emphasizes the importance of combining herbal medicines. This is because the interaction between different herbs can lead to various effects: some may be incompatible, while others may enhance therapeutic efficacy. Additionally, certain combinations can result in toxic effects. The concept of the Seven Emotions(七情配伍) compatibility includes the following aspects:
+        </p>
+        <p>
+        Single Action(單行): Refers to the use of a single herb to achieve the desired effects without the need for additional herbs.
+        </p>
+
+        Mutual Complementarity(相須): Involves the combination of herbs with similar properties and therapeutic effects to enhance their original efficacy. For example:<br>
+        In the analysis results, Zhimu(知母) and Shashen(沙參) both possess heat-clearing properties. Fuling(茯苓) and Zexie(澤瀉), commonly used in clinical practice, are known for their diuretic and damp-draining effects. Fuling(茯苓) has a mild, sweet taste and is effective in promoting diuresis, draining dampness, and nourishing the heart.<br>
+        <img src="apriori1.png" alt="apriori1"><br>
+        <img src="apriori2.png" alt="apriori2"><br>
+
+    </ul>
     </p>
 
 

@@ -29,3 +29,16 @@ th, td {
     border: 1px solid black;
     padding: 8px;
 }
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.centered-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
