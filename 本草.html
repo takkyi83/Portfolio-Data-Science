@@ -28,7 +28,7 @@
     </p>
 
     <p>
-        <strong> Objectives: </strong>
+        <h2> Objectives: </h2>
         To organize and analyze the unstructured data in the field of TCM, this study initially focuses on analyzing a
         single ancient text. The chosen text is the most representative work, "Compendium of Materia Medica." This
         selection is based on its widespread recognition as an ancient TCM text and because it represents the wisdom
@@ -50,11 +50,11 @@
         non-professionals interested in TCM and medical institutions with questions about herbal medicine prescriptions.
         Ultimately, when all the data is organized, it will form a big data platform for TCM.
     </p>
-    <strong>Research Methodologies</strong>
+    <h2>Research Methodologies</h2>
         The data source of this study is the full text of "Compendium of Materia Medica", which is divided into 16 volumes
         , with 1892 kinds of medicines and 11096 compounds. The tools used are Python, MySQL, Tableau, and Flask.
     <br>
-    <img src="本草-項目流程圖.jpg", alt="Research Method Flow Chart">
+    <img src="本草-項目流程圖.jpg", alt="Research Method Flow Chart", width="600" height="350">
 
     <p>
         This study starts with data cleaning, and uses Python regular expressions for data extraction.
@@ -63,11 +63,11 @@
         exploration and analysis of the Chinese medicine database.
     </p>
 
-    <strong>Data Cleaning</strong>
+    <h2>Data Cleaning</h2>
     <p>
         Compendium of Materia Medica belongs to unstructured textual data (not neatly formatted data tables). The data is consisted by free-form text, and paragraphs. Due to the unstructured and noisy nature of text data, it is difficult to directly apply machine learning methods to it. We converted unstructured text data into structured text data by finding content rules and extracting data using Regular Expression.
     </p>
-    <strong>Common issues of unstrctured text data</strong>
+    <h3>Common issues of unstrctured text data</h3>
     <ul>
         <li>1. Data Missing</li>
         <img src="unstructured-text-issues.jpg", alt="unstructured text issues">
@@ -77,7 +77,7 @@
     </p>
 
     <p>
-    <strong>Data Structuring </strong>
+    <h3>Data Structuring </h3>
     <ul>
     <p>
         <li>
@@ -148,7 +148,7 @@
                 </tr>
             </table>
             <br>
-            Use Regular Expression to extract the taste and nature levels.
+            Use Regular Expression to extract the taste and nature levels.<br>
             <img src="extract-taste-levels.png", alt="extract taste levels"> <br>
             Convert the levels of nature and taste to formatted text. <br>
             <img src="format-levels.png", alt="format levels"> <br>
@@ -166,6 +166,10 @@
         </li>
     </p>
     </ul>
+    <p>
+        <h2>Building a relationship database</h2>
+
+    </p>
 
 
     Text content:
