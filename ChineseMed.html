@@ -9,8 +9,10 @@
 <div class="container">
     <h1>Decrypt Compendium of Materia Medica: Ancient Chinese unstructured text exploration , medicinal material
         , database construction and visual exploration analysis</h1>
-    <div class="image-container">
-    <img src="本草海報.jpeg" class="header-image" alt="Header Image" width="600" height="3000" class="centered-image">
+    <div class="content">
+        <div class="image-container">
+            <img src="本草海報.jpeg" class="header-image centered-image" alt="Header Image", width="400" height="2000">
+        </div>
     </div>
     <p>
         Traditional Chinese medicine (TCM) is said to have a history of thousands of years. The story of Shen Nong
@@ -200,17 +202,48 @@
         Mutual Complementarity(相須): Involves the combination of herbs with similar properties and therapeutic effects to enhance their original efficacy. For example:<br>
         In the analysis results, Zhimu(知母) and Shashen(沙參) both possess heat-clearing properties. Fuling(茯苓) and Zexie(澤瀉), commonly used in clinical practice, are known for their diuretic and damp-draining effects. Fuling(茯苓) has a mild, sweet taste and is effective in promoting diuresis, draining dampness, and nourishing the heart.<br>
         <img src="apriori1.png" alt="apriori1"><br>
-        <img src="apriori2.png" alt="apriori2"><br>
-
     </ul>
+    <ul>
+        <strong>3. Word2Vec</strong>>br>
+        Word2Vec converts words into computer-understandable patterns known as vectors. It utilizes the Continuous Bag of Words (CBOW) algorithm, which takes the surrounding context words as input for a neural network and predicts the target word. Once the computer learns, we can extract word vectors for any two words and calculate the distance between them. This distance concept represents the similarity between words.
+
+        The interpretability of Word2Vec's association results is not as straightforward as Apriori's results. In this study, probably because the text were written in ancient Chinese or Word2Vec is less capable in understanding the contextual relationships than Apriori, the calculated result shows a similarity of only about 0.2, indicating a weak association. Therefore, relying on contextual analysis to determine the strength of associations between medicinal herbs may not be an effective approach.
+    </ul>
+    <p>
+    <h2>Data Visulisation</h2><br>
+    Connected Tableau with the MySQL database created to perform data visulisation.<br>
+    <img src="pie-chart.png" alt="pie chart" width="700" height="400"><br>
+    From the above chart, it can be observed that the Grass (草) radical appears with the highest frequency compared to other radicals, constituting the majority of the total number of articles.
+    <br>
+    <img src="grid-chart.png" alt="grid chart" width="700" height="400"><br>
+    <img src="grass.png" alt="grass frequency" width="800" height="500"><br>
+    Based on the chart above, within the Grass radical, "licorice" (甘草) appears with a frequency of 151 times. From this, we can infer the various symptoms or conditions that can be treated using licorice.<br>
+    <img src="5-flavours.png" alt="5 flavours" width="600" height="400"><br>
+    In traditional Chinese medicine, the term "五味" refers to the five different tastes, namely "辛" (spicy), "甘" (sweet), "酸" (sour), "苦" (bitter), and "鹹" (salty). Based on the chart above, it can be observed that the taste categorized as "辛" (spicy) is the most prominent or appears with the highest frequency.<br>
+    </p>
+    <p>
+        <h2>Conclusion</h2>
+    This project has constructed a Chinese medicine relational database and conducted clustering and association analysis between medicinal herbs and prescriptions. The application of machine learning in obtaining association and clustering analysis results has received positive recognition from experts in the field of Chinese pharmacology. The findings and conclusions are as follows:<br>
+    <li>
+        LDA (Latent Dirichlet Allocation) can extract meaningful clusters from symptom names in the texts. It is a less common approach to categorize based on symptoms rather than prescriptions.
+    </li>
+    <li>
+        Apriori can identify common pairs of medicinal herbs used together, further analysing their compatibility logic to aid in identifying the Seven Emotions compatibility among herbs within compound formulas.
+    </li>
+    <li>
+        Visual exploratory analysis effectively reveals the distribution frequency of the four properties (四性) and five tastes (五味) and the associations between symptoms and medicinal herbs, providing intuitive insights on how to treat specific conditions.
+    </li>
+    Overall, the study has successfully developed a Chinese medicine association database and applied various analytical techniques to gain valuable insights into the relationships and patterns within the Compendium of Materia Medica text, contributing to the field of pharmacology.
+    </p>
     </p>
 
 
-    Text content:
+<!--    Text content:-->
 
-參考：
-    https://docs.google.com/document/d/1s-OWEO2XJwpRMZHgImGYmBns99UHFrUk/edit
-    https://docs.google.com/presentation/d/1c6-ju0gYcwwg254prhcUZ47gW0nj7qJ_/edit#slide=id.p4
+<!--參考：-->
+<!--    https://docs.google.com/document/d/1s-OWEO2XJwpRMZHgImGYmBns99UHFrUk/edit-->
+<!--    https://docs.google.com/presentation/d/1c6-ju0gYcwwg254prhcUZ47gW0nj7qJ_/edit#slide=id.p4-->
+<!--    改善圖片 https://pinetools.com/sharpen-image-->
 
 </div>
 </body>
