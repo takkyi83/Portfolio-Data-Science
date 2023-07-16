@@ -10,7 +10,6 @@ body {
     padding: 0 20%;
 }
 
-
 .header-image {
     max-width: 100%;
     height: auto;
@@ -33,7 +32,7 @@ body {
     top: 20px;
     right: 20px;
     z-index: 9999;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 table {
@@ -66,4 +65,28 @@ th, td {
     .content {
         padding: 20px;
     }
+}
+
+.line-chart {
+    width: 100%;
+    height: 30px;
+    background-color: #f0f0f0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.chart-label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.chart-bar {
+    height: 100%;
+    background-color: #e0e0e0;
+}
+
+.chart-progress {
+    height: 100%;
+    background-color: #4caf50;
 }
