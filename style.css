@@ -1,7 +1,9 @@
 /* styles.css */
+
 body {
     margin: 0;
     padding: 0;
+    font-size: 18px; /* Set the desired default font size */
 }
 
 .container {
@@ -24,15 +26,7 @@ body {
 
 .div {
     width: 300px;
-    align: "center";
-}
-
-.language-link {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    text-decoration: underline;
+    align: center;
 }
 
 table {
@@ -48,13 +42,25 @@ th, td {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Change height to min-height to allow for content expansion */
+    min-height: 50vh; /* Change height to min-height to allow for content expansion */
 }
 
 .centered-image {
     max-width: 100%;
     max-height: 100%;
 }
+
+pre {
+    background-color: #f5f5f5;
+    padding: 0px;
+    font-family: Consolas, monospace;
+}
+
+.centered-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
 
 /* 使用媒體查詢適應不同螢幕寬度 */
 @media (max-width: 768px) {
@@ -66,4 +72,3 @@ th, td {
         padding: 20px;
     }
 }
-
