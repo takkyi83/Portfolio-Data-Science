@@ -3,20 +3,23 @@
 body {
     margin: 0;
     padding: 0;
-    font-size: 18px; /* Set the desired default font size */
+    font-size: 18px;
 }
 
 .container {
     max-width: 60%;
     margin: 0 auto;
     padding: 0 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .header-image {
     max-width: 100%;
     height: auto;
     flex-shrink: 0;
-    margin-bottom: 20px; /* Add a margin at the bottom to create space for the text */
+    margin-bottom: 20px;
 }
 
 .content {
@@ -42,7 +45,7 @@ th, td {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 50vh; /* Change height to min-height to allow for content expansion */
+    min-height: 50vh;
 }
 
 .centered-image {
@@ -55,12 +58,6 @@ pre {
     padding: 0px;
     font-family: Consolas, monospace;
 }
-
-.centered-section {
-    text-align: center;
-    margin-top: 20px;
-}
-
 
 /* 使用媒體查詢適應不同螢幕寬度 */
 @media (max-width: 768px) {
