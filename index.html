@@ -50,8 +50,8 @@
 </div>
 
 <script>
-    var xValues = ["Machine Learning", "Deep Learning", "Data Engineering", "Data Visualization", "Software Engineering", "AWS", "Python", "SQL", "Statistics", "R", "SAS"];
-    var yValues = [85, 70, 80, 95, 55, 60, 85, 90, 85, 75, 55];
+    var xValues = ["Machine Learning", "Deep Learning", "Data Engineering", "Data Visualization", "Software Engineering", "Data Analysis"];
+    var yValues = [85, 70, 80, 90, 55, 95];
     var barColors = Array(xValues.length).fill("blue");
 
     new Chart("skillBarChart", {
@@ -72,12 +72,16 @@
                     min: 0,
                     max: 100,
                     ticks: {
-                        stepSize: 10
-                    },
-                    ticks: {
                         stepSize: 10,
                         font: {
-                            size: 17 // Adjust the font size as needed
+                            size: 17
+                        }
+                    }
+                },
+                x: {
+                    ticks: {
+                        font: {
+                            size: 14
                         }
                     }
                 }
