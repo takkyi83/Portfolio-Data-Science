@@ -184,6 +184,7 @@
         LDA is an unsupervised machine learning technique used to uncover underlying topic information within extensive document collections or corpora.
 
         It utilizes the "bag of words" approach, treating each document as a frequency vector, thereby converting text information into easily modeled numerical data. However, the bag of words approach disregards the order of words, which simplifies the problem while also presenting an opportunity for model enhancement. Each document represents a probability distribution of constituent topics, while each topic represents a probability distribution of numerous words.<br>
+        <img src="lda-python.png" alt="lda-python"><br>
         <img src="lda.png" alt="lda"><br>
         <p>
         <Strong>Use LDA to cluster diseases</Strong><br>
@@ -201,10 +202,11 @@
 
         Mutual Complementarity(相須): Involves the combination of herbs with similar properties and therapeutic effects to enhance their original efficacy. For example:<br>
         In the analysis results, Zhimu(知母) and Shashen(沙參) both possess heat-clearing properties. Fuling(茯苓) and Zexie(澤瀉), commonly used in clinical practice, are known for their diuretic and damp-draining effects. Fuling(茯苓) has a mild, sweet taste and is effective in promoting diuresis, draining dampness, and nourishing the heart.<br>
+        <img src="apriori-python.png", alt="apriori-python"><br>
         <img src="apriori1.png" alt="apriori1"><br>
     </ul>
     <ul>
-        <strong>3. Word2Vec</strong>>br>
+        <strong>3. Word2Vec</strong><br>
         Word2Vec converts words into computer-understandable patterns known as vectors. It utilizes the Continuous Bag of Words (CBOW) algorithm, which takes the surrounding context words as input for a neural network and predicts the target word. Once the computer learns, we can extract word vectors for any two words and calculate the distance between them. This distance concept represents the similarity between words.
 
         The interpretability of Word2Vec's association results is not as straightforward as Apriori's results. In this study, probably because the text were written in ancient Chinese or Word2Vec is less capable in understanding the contextual relationships than Apriori, the calculated result shows a similarity of only about 0.2, indicating a weak association. Therefore, relying on contextual analysis to determine the strength of associations between medicinal herbs may not be an effective approach.
