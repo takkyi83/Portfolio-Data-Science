@@ -31,7 +31,7 @@
     </p>
 
     <p>
-        <h2> Objectives: </h2>
+        <h1> Objectives: </h1>
         To organize and analyze the unstructured data in the field of TCM, this study initially focuses on analyzing a
         single ancient text. The chosen text is the most representative work, "Compendium of Materia Medica." This
         selection is based on its widespread recognition as an ancient TCM text and because it represents the wisdom
@@ -53,7 +53,7 @@
         non-professionals interested in TCM and medical institutions with questions about herbal medicine prescriptions.
         Ultimately, when all the data is organized, it will form a big data platform for TCM.
     </p>
-    <h2>Research Methodologies</h2>
+    <h1>Research Methodologies</h1>
         The data source of this study is the full text of "Compendium of Materia Medica", which is divided into 16 volumes
         , with 1892 kinds of medicines and 11096 compounds. The tools used are Python, MySQL, Tableau, and Flask.
     <br>
@@ -66,11 +66,17 @@
         exploration and analysis of the Chinese medicine database.
     </p>
 
-    <h2>Data Cleaning</h2>
+    <h1>Data Cleaning</h1>
+    <h3>Text Tokenization</h3>
+    Using python library <a href="https://github.com/fxsjy/jieba"<strong>jieba</strong></a> for chinese text segmentation.
+    <p>
+    <strong>Text Tokens</strong><br>
+    <img src="text-tokens.png", alt="text-tokens">
+    </p>
     <p>
         Compendium of Materia Medica belongs to unstructured textual data (not neatly formatted data tables). The data is consisted by free-form text, and paragraphs. Due to the unstructured and noisy nature of text data, it is difficult to directly apply machine learning methods to it. We converted unstructured text data into structured text data by finding content rules and extracting data using Regular Expression.
     </p>
-    <h3>Common issues of unstrctured text data</h3>
+    <h2>Common issues of unstrctured text data</h2>
     <ul>
         <li>1. Data Missing</li>
         <img src="unstructured-text-issues.jpg", alt="unstructured text issues">
@@ -80,7 +86,7 @@
     </p>
 
     <p>
-    <h3>Data Structuring </h3>
+    <h2>Data Structuring </h2>
     <ul>
     <p>
         <li>
@@ -120,10 +126,10 @@
             <img src="convert-aliases.png", alt="convert aliases"> <br>
 
             Use Regular Expression to extract aliases, nature and taste, indications, compound, and parts.<br>
-            <img src="regex-extract-aliases.png", alt="use regex to extract aliases"> <br>
+            <img src="regex-extract-aliases.png", alt="use regex to extract aliases", style="width: 100%; height: auto;"> <br>
 
             Convert aliases, nature and taste, indications, compound, and parts into structured format.<br>
-            <img src="format-aliases.png", alt="format aliases"><br>
+            <img src="format-aliases.png", alt="format aliases", style="width: 100%; height: auto;><br>
         </li>
     </p>
     <p>
@@ -170,61 +176,82 @@
     </p>
     </ul>
     <p>
-        <h2>Building a relational database</h2>
+        <h1>Building a relational database</h1>
         The database comprises multiple tables containing information on Chinese herbal medicine and diseases. The structured text will be utilised to establish a relational database for facilitating future analysis.<br><br>
         <strong>Database entity-relationship model</strong><br>
-        <img src="er-model.png", alt="database er model"><br>
+        <img src="er-model.png", alt="database er model", style="width: 80%; height: auto;"><br>
         <strong>Database Relational Diagram</strong>
-        <img src="db-diagram.png" alt="database relationship diagram"><br>
+        <img src="db-diagram.png" alt="database relationship diagram" style="width: 80%; height: auto;"><br>
     </p>
     <p>
-    <h2>Data Analysis</h2>
+    <h1>Data Analysis</h1>
     <ul>
-        <strong>1. Latent Dirichlet Allocation (LDA)</strong><br>
+        <h2>1. Latent Dirichlet Allocation (LDA)</h2><br>
         LDA is an unsupervised machine learning technique used to uncover underlying topic information within extensive document collections or corpora.
 
         It utilizes the "bag of words" approach, treating each document as a frequency vector, thereby converting text information into easily modeled numerical data. However, the bag of words approach disregards the order of words, which simplifies the problem while also presenting an opportunity for model enhancement. Each document represents a probability distribution of constituent topics, while each topic represents a probability distribution of numerous words.<br>
-<!--        <img src="lda-python.png" alt="lda-python"><br>-->
         <img src="lda.png" alt="lda"><br>
         <p>
-        <Strong>Use LDA to cluster diseases</Strong><br>
         We used the LDA clustering method to extract distinct features of disease names, which are then grouped into 2 to 45 clusters. Currently, the maximum number of clusters achieved is 45. Expert consultation from relevant domains revealed that the results obtained with 45 clusters are the most easily interpretable. Moreover, experiments were conducted with more than 45 clusters to observe their outcomes.
         </p>
+        <img src="lda-python.png" alt="lda-python" style="width: 100%; height: auto;"><br>
+        <img src="lda-python2.png" alt="lda-python2" style="width: 100%; height: auto;"><br>
     </ul>
     <ul>
-        <strong>2. Use Apriori to find connections between medicines</strong><br>
+        <h2>2. Use Apriori to find connections between medicines</h2><br>
         <p>
-        Within traditional Chinese medicine, the principle of compatibility known as the "Seven Emotions"(七情配伍) emphasizes the importance of combining herbal medicines. This is because the interaction between different herbs can lead to various effects: some may be incompatible, while others may enhance therapeutic efficacy. Additionally, certain combinations can result in toxic effects. The concept of the Seven Emotions(七情配伍) compatibility includes the following aspects:
+        Within traditional Chinese medicine, the principle of compatibility known as the "Seven Emotions"(七情配伍) emphasizes the importance of combining herbal medicines. This is because the interaction between different herbs can lead to various effects: some may be incompatible, while others may enhance therapeutic efficacy. Additionally, certain combinations can result in toxic effects. The concept of the Seven relations(七情配伍) compatibility includes the following aspects:
         </p>
-        <p>
-        Single Action(單行): Refers to the use of a single herb to achieve the desired effects without the need for additional herbs.
-        </p>
-
-        Mutual Complementarity(相須): Involves the combination of herbs with similar properties and therapeutic effects to enhance their original efficacy. For example:<br>
-        In the analysis results, Zhimu(知母) and Shashen(沙參) both possess heat-clearing properties. Fuling(茯苓) and Zexie(澤瀉), commonly used in clinical practice, are known for their diuretic and damp-draining effects. Fuling(茯苓) has a mild, sweet taste and is effective in promoting diuresis, draining dampness, and nourishing the heart.<br>
-<!--        <img src="apriori-python.png", alt="apriori-python"><br>-->
-        <img src="apriori1.png" alt="apriori1"><br>
+        <li>
+        Drug used singly(單行): Refers to the use of a single herb to achieve the desired effects without the need for additional herbs.
+        </li>
+        <li>
+        Mutual reinforcement(相須): Involves the combination of herbs with similar properties and therapeutic effects to enhance their original efficacy. For example:
+        In the analysis results, Zhimu(知母) and Shashen(沙參) both possess heat-clearing properties. Fuling(茯苓) and Zexie(澤瀉), commonly used in clinical practice, are known for their diuretic and damp-draining effects. Fuling(茯苓) has a mild, sweet taste and is effective in promoting diuresis, draining dampness, and nourishing the heart.
+        </li>
+        <img src="apriori1.png" alt="apriori1" style="width: 70%; height: auto;"><br>
+        <li>
+        Mutual assistance(相使): It refers to the combination of certain drugs that have some commonality in terms of performance and efficacy, with one drug being the main component and the other as a complementary component, which can enhance the therapeutic effect of the main drug. For example, when Huangqi(黃芪), which supplements qi and promotes diuresis, is used in combination with Fuling(茯苓), which promotes diuresis and strengthens the spleen, Fuling can enhance the therapeutic effect of Huangqi in supplementing qi and promoting diuresis. Other examples of such drug combinations include Tianmendong(天門冬) and Shengdihuang(生地黃), Fuling and Renshen.
+        </li>
+        <li>
+        Mutual restraint(相畏): It refers to the toxic reaction or side effects of one drug being alleviated or eliminated by another drug. For example, the herbal formula "Houpo Wen Zhong Tang"(厚樸溫中湯) includes Houpo (厚樸, Magnolia officinalis) and Ganjiang (乾薑, Dried Ginger). Ganjiang is warm and pungent, which helps to counteract the cold nature of Houpo and reduces its potential side effects.
+        </li>
+        <li>
+        Counteract toxicity of another drug(相殺): It refers to one drug's ability to alleviate or eliminate the toxicity or side effects of another drug. For example, fresh ginger can reduce or eliminate the toxic side effects of Pinellia ternata(半夏), so it is said that fresh ginger neutralizes the toxicity of Pinellia ternata. From the above, we can understand that reciprocal fear and neutralization are essentially two different ways of describing the same combination relationship, which involves the mutual interaction between drugs.
+        </li>
+        <li>
+        Mutual inhibition(相惡):  It refers to the combination of two drugs, where one drug interferes with the action of the other drug, leading to a reduction in the original efficacy, or even the loss of effectiveness. For example, Ginseng(人參) and Radish Seeds (萊菔子) exhibit antagonism when used together, as Radish Seeds can weaken the tonic effect of Ginseng in supplementing qi.
+        </li>
+        <li>
+        Clashing antagonism(相反): It refers to the combination of two drugs that can result in toxic reactions or side effects. For example, Gan Sui (甘遂, Euphorbia kansui) and Gan Cao (甘草, Licorice root) have a contradictory relationship. Raw Gan Sui has a stronger effect and greater toxicity, while processed Gan Sui (煨甘遂, decocted in water) has a milder laxative effect and lower toxicity. When Gan Sui is used together with Gan Cao, it enhances the toxicity of Gan Sui. To reduce its laxative effect and toxicity, Gan Sui can be processed with vinegar.
+        </li>
+        <br>
+        <strong>Apriori演算法</strong>
+        <img src="apriori-python.png", alt="apriori-python", style="width: 100%; height: auto;"><br>
+        <img src="apriori-python2.png", alt="apriori-python", style="width: 100%; height: auto;"><br>
     </ul>
     <ul>
-        <strong>3. Word2Vec</strong><br>
+        <h2>3. Word2Vec</h2><br>
         Word2Vec converts words into computer-understandable patterns known as vectors. It utilizes the Continuous Bag of Words (CBOW) algorithm, which takes the surrounding context words as input for a neural network and predicts the target word. Once the computer learns, we can extract word vectors for any two words and calculate the distance between them. This distance concept represents the similarity between words.
 
         The interpretability of Word2Vec's association results is not as straightforward as Apriori's results. In this study, probably because the text were written in ancient Chinese or Word2Vec is less capable in understanding the contextual relationships than Apriori, the calculated result shows a similarity of only about 0.2, indicating a weak association. Therefore, relying on contextual analysis to determine the strength of associations between medicinal herbs may not be an effective approach.
     </ul>
     <p>
-    <h2>Data Visulisation</h2><br>
+    <h1>Data Visulisation</h1><br>
     Connected Tableau with the MySQL database created to perform data visulisation.<br>
     <img src="pie-chart.png" alt="pie chart" width="700" height="400"><br>
     From the above chart, it can be observed that the Grass (草) radical appears with the highest frequency compared to other radicals, constituting the majority of the total number of articles.
     <br>
     <img src="grid-chart.png" alt="grid chart" width="700" height="400"><br>
-    <img src="grass.png" alt="grass frequency" width="800" height="500"><br>
     Based on the chart above, within the Grass radical, "licorice" (甘草) appears with a frequency of 151 times. From this, we can infer the various symptoms or conditions that can be treated using licorice.<br>
-    <img src="5-flavours.png" alt="5 flavours" width="600" height="400"><br>
-    In traditional Chinese medicine, the term "五味" refers to the five different tastes, namely "辛" (spicy), "甘" (sweet), "酸" (sour), "苦" (bitter), and "鹹" (salty). Based on the chart above, it can be observed that the taste categorized as "辛" (spicy) is the most prominent or appears with the highest frequency.<br>
+    <strong>Radicals</strong><br>
+    <img src="radical.png", alt="radical"><br>
+    <strong>Flavours</strong><br>
+    <img src="flavours.png", alt="flavours"><br>
+    <br>
     </p>
     <p>
-        <h2>Conclusion</h2>
+        <h1>Conclusion</h1>
     This project has constructed a Chinese medicine relational database and conducted clustering and association analysis between medicinal herbs and prescriptions. The application of machine learning in obtaining association and clustering analysis results has received positive recognition from experts in the field of Chinese pharmacology. The findings and conclusions are as follows:<br>
     <li>
         LDA (Latent Dirichlet Allocation) can extract meaningful clusters from symptom names in the texts. It is a less common approach to categorize based on symptoms rather than prescriptions.
@@ -238,14 +265,6 @@
     Overall, the study has successfully developed a Chinese medicine association database and applied various analytical techniques to gain valuable insights into the relationships and patterns within the Compendium of Materia Medica text, contributing to the field of pharmacology.
     </p>
     </p>
-
-
-<!--    Text content:-->
-
-<!--參考：-->
-<!--    https://docs.google.com/document/d/1s-OWEO2XJwpRMZHgImGYmBns99UHFrUk/edit-->
-<!--    https://docs.google.com/presentation/d/1c6-ju0gYcwwg254prhcUZ47gW0nj7qJ_/edit#slide=id.p4-->
-<!--    改善圖片 https://pinetools.com/sharpen-image-->
 
 </div>
 </body>
