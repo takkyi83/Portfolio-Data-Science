@@ -62,6 +62,9 @@ pre {
 }
 
 pre {
+    background-color: #f5f5f5;
+    padding: 0px;
+    font-family: Consolas, monospace;
     max-height: 300px;
     overflow-y: auto; /* 添加滚动条，只在内容溢出时显示 */
     /* 这里可以添加其他样式，比如字体大小、边框等 */

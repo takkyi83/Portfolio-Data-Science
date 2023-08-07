@@ -4,7 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <title>Project Page</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Include the Prism CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css" />
 </head>
+
 <body>
 <a id="top"></a>
 <div style="text-align: right;"><h2><a href="https://ch.sherry-liu.com/">Go to Homepage</a></h2></div>
@@ -65,7 +68,7 @@
     <ul>
         1. Creating the comparison matrix: First, create a 3x3 comparison matrix M to compare the relative importance among three elements. The comparison matrix is symmetric, with diagonal elements equal to 1, representing self-comparisons.
     </ul>
-    <pre><code>
+    <pre><code class="language-r">
     # Import the gdata library
     library(gdata);
 
@@ -84,7 +87,7 @@
     <ul>
         2. Normalizing the comparison matrix: Normalize each column of the comparison matrix M so that the sum of each column becomes 1, resulting in the normalized pairwise comparison matrix MP.
     </ul>
-    <pre><code>
+    <pre><code class="language-r">
     # Calculate the sum of each column of M and store it in the vector V
     V<-c(0,0,0);
     V<-colSums(M);
@@ -99,7 +102,7 @@
     <ul>
         3. Computing the relative priorities: Calculate the row averages of the normalized pairwise comparison matrix MP to obtain the relative priorities vector CWV.
     </ul>
-    <pre><code>
+    <pre><code class="language-r">
     # Calculate the row averages of MP to get the relative priorities vector CWV
     CWV<-c(0,0,0);
     CWV<-rowMeans(MP);
@@ -108,7 +111,7 @@
     <ul>
         4. Using geometric mean: Calculate the geometric mean of each row in the normalized pairwise comparison matrix MP to obtain the new relative priorities vector CWV2.
     </ul>
-    <pre><code>
+    <pre><code class="language-r">
     # Calculate the CWV2 vector using the geometric mean method
     CWV2<-c(0,0,0);
     CWV2[1]<-(MP[1,1]*MP[1,2]*MP[1,3])^(1/3);
@@ -121,7 +124,7 @@
         If the consistency is acceptable, the decision process can proceed.<br>
         If the consistency is not acceptable, the decision-maker should reconsider and possibly revise the pairwise comparison judgments before conducting the analysis again.
     </ul>
-    <pre><code>
+    <pre><code class="language-r">
     # Calculate the vector V, which is the "weighted sum" by summing each row's values. '%*%' represents matrix multiplication.
     V <- M %*% CWV;
 
@@ -150,20 +153,20 @@
 
 
     <h2>2. Analytic Network Process (ANP)</h2>
-<p>
-    ANP is a multi-criteria decision-making method used to address complex decision problems, particularly those with interdependencies among multiple criteria and sub-criteria.
-</p>
+    <p>
+        ANP is a multi-criteria decision-making method used to address complex decision problems, particularly those with interdependencies among multiple criteria and sub-criteria.
+    </p>
 
     ANP is an extension of AHP (Analytic Hierarchy Process) and is used to tackle multi-criteria decision-making problems with cyclic dependencies and interactions.
-<p>
-    Here, ANP is applied to evaluate Airport Accessibility. The evaluation involves four aspects: Market Attractiveness Rating (MAR), Airport Accessibility (ACC), Cost of Stay (COS), and Cultural Attractions Points (CAP).
-</p>
+    <p>
+        Here, ANP is applied to evaluate Airport Accessibility. The evaluation involves four aspects: Market Attractiveness Rating (MAR), Airport Accessibility (ACC), Cost of Stay (COS), and Cultural Attractions Points (CAP).
+    </p>
 
     <ul>
-    1. Market Attractiveness Rating (MAR):
-    This code calculates the score for market attractiveness. It creates a 7x7 diagonal matrix M and sets certain elements to represent the relative importance between different factors (pairwise comparisons). The matrix is then normalized to obtain the normalized pairwise comparison matrix MP. The row averages of MP are calculated to obtain the relative priority vector CWV.
+        1. Market Attractiveness Rating (MAR):
+        This code calculates the score for market attractiveness. It creates a 7x7 diagonal matrix M and sets certain elements to represent the relative importance between different factors (pairwise comparisons). The matrix is then normalized to obtain the normalized pairwise comparison matrix MP. The row averages of MP are calculated to obtain the relative priority vector CWV.
 
-    <pre><code>
+        <pre><code class="language-r">
         ## Airport Accessibility
         library(gdata)
         #MAR
@@ -212,11 +215,11 @@
     </ul>
 
     <ul>
-    2. Airport Accessibility (ACC):
-    Similar to the MAR part, this code calculates the score for airport accessibility. It involves creating a 7x7 diagonal matrix M, setting certain elements to represent pairwise comparisons, normalizing the matrix, and calculating the row averages to obtain the relative priority vector CWV1.
+        2. Airport Accessibility (ACC):
+        Similar to the MAR part, this code calculates the score for airport accessibility. It involves creating a 7x7 diagonal matrix M, setting certain elements to represent pairwise comparisons, normalizing the matrix, and calculating the row averages to obtain the relative priority vector CWV1.
     </ul>
 
-    <pre><code>
+    <pre><code class="language-r">
         library(gdata)
         #ACC
         M <- diag(7);
@@ -264,11 +267,11 @@
         </code></pre>
 
     <ul>
-    3. Cost of Stay (COS):
-    This code calculates the score for the cost of stay. It creates a 7x7 diagonal matrix COS and sets certain elements to represent pairwise comparisons. The matrix is then normalized to obtain the normalized pairwise comparison matrix CosMP. The row averages of CosMP are calculated to obtain the relative priority vector CosCWV2.
+        3. Cost of Stay (COS):
+        This code calculates the score for the cost of stay. It creates a 7x7 diagonal matrix COS and sets certain elements to represent pairwise comparisons. The matrix is then normalized to obtain the normalized pairwise comparison matrix CosMP. The row averages of CosMP are calculated to obtain the relative priority vector CosCWV2.
     </ul>
 
-    <pre><code>
+    <pre><code class="language-r">
             #COS
             COS <- diag(7)
             COS[1,2]=1/6
@@ -309,10 +312,10 @@
         </code></pre>
 
     <ul>
-    4. Cultural Attractions Points (CAP):
-    Similar to the previous parts, this code calculates the score for cultural attractions points. It involves creating a 7x7 diagonal matrix M, setting certain elements to represent pairwise comparisons, normalizing the matrix, and calculating the row averages to obtain the relative priority vector CWV3.
+        4. Cultural Attractions Points (CAP):
+        Similar to the previous parts, this code calculates the score for cultural attractions points. It involves creating a 7x7 diagonal matrix M, setting certain elements to represent pairwise comparisons, normalizing the matrix, and calculating the row averages to obtain the relative priority vector CWV3.
     </ul>
-    <pre><code>
+    <pre><code class="language-r">
         #CAP
         M <- diag(7);
         M[1,2] = 1/2
@@ -385,7 +388,7 @@
     <ul>5. Finally, the four vectors (CWV, CWV1, CosCWV2, and CWV3) are merged into a matrix X. The Analytic Hierarchy Process (AHP) is used to perform a comprehensive analysis of these scores, and the final ranking result SI is obtained. SI is a vector, and its negative values indicate the final ranking results, where smaller values represent higher priorities. The rank function is used to sort SI and obtain the final ranking result.
     </ul>
 
-    <pre><code>
+    <pre><code class="language-r">
         X=rbind(CWV,CWV1,CosCWV2,CWV3)
         colnames(X)=c('A1','A2','A3','A4','A5','A6','A7')
 
@@ -401,7 +404,7 @@
     <ul>
         1. Create an empty data frame "y" to store the attribute values for each car choice. The data frame has 4 rows representing car models ('Civic', 'Saturn', 'Ford', 'Mazda') and 3 columns representing attributes ('Style', 'Reliability', 'FuelEco').
 
-        <pre><code>
+        <pre><code class="language-r">
             # Create empty data frame
             y <- data.frame(matrix(data=0, ncol = 3, nrow = 4));
             colnames(y) <- c("Style","Reliability","FuelEco");
@@ -413,7 +416,7 @@
     <ul>
         2. Use the "c()" function to assign attribute values to each row of the car choices. Each row is filled with the attribute values (Style, Reliability, FuelEco) of the car model.
 
-        <pre><code>
+        <pre><code class="language-r">
             # Assign atrribute values to each alternative row
             y["Civic",] <- c(7,9,9);
             y["Saturn",] <- c(8,7,8);
@@ -425,7 +428,7 @@
     <ul>
         3. Add an additional column "SAW_score_vector" to store the calculated SAW scores for each car choice. Initialize all scores to 0.
 
-        <pre><code>
+        <pre><code class="language-r">
             # Append a column to store the SAW-ed scores for each alternative
             SAW_score_vector <- c(0,0,0,0);
             y<-cbind(y,SAW_score_vector);
@@ -435,7 +438,7 @@
     <ul>
         4. Define "SAW_weight_vector" representing the weights assigned by the decision-maker (DM) to each attribute.
 
-        <pre><code>
+        <pre><code class="language-r">
         SAW_weight_vector <- c(0.3,0.4,0.3);
     </code></pre>
     </ul>
@@ -443,7 +446,7 @@
     <ul>
         5. Calculate the weighted total score for each car choice by multiplying the attribute values with the weight vector. Store the computed scores in the "SAW_score_vector" column for each car choice.
 
-        <pre><code>
+        <pre><code class="language-r">
         SAW_weight_vector * y["Civic",];
         y["Civic","SAW_score_vector"] <- sum (SAW_weight_vector * y["Civic",]);
 
@@ -461,7 +464,7 @@
     <ul>
         6. Rank the choices in descending order based on the calculated SAW scores. The ranking results are stored in the "SAW_rank_vector" column.
 
-        <pre><code>
+        <pre><code class="language-r">
         SAW_rank_vector <- order(-y$SAW_score_vector);
         y<-cbind(y,SAW_rank_vector);
         </code></pre>
@@ -473,7 +476,7 @@
 
     Max standardization allows us to transform values of different attributes into the same range, making their impact equal when calculating weights and aiding in more accurate decision-making.
 
-    <pre><code>
+    <pre><code class="language-r">
         # Construct standardized y
         y_standardised <- y;
         y_standardised[,"Style"]<-y[,"Style"]/max(y[,"Style"]);
@@ -486,7 +489,7 @@
 
     In the SAW method, before step 3, we calculate "y_standardised" using geometric mean to standardize "y." The rest of the steps remain the same.
 
-    <pre><code>
+    <pre><code class="language-r">
         # Construct standardized y
         y_standardised <- y;
         y_standardised[,"Style"]<-y[,"Style"]/sqrt(sum(y[,"Style"]^2));
@@ -505,7 +508,7 @@
     <ul>
         1. Create a Decision Matrix: First, combine all attribute values of competing alternatives into a decision matrix, where each row represents an alternative, and each column represents an attribute.
     </ul>
-    <pre><code>
+    <pre><code class="language-r">
             DecisionMatrix<-matrix(0,4,4);
             DecisionMatrix[1,]<-c( 49, 81, 81, 64);
             DecisionMatrix[2,]<-c( 64, 49, 64, 49);
@@ -517,7 +520,7 @@
     <ul>
         2. Standardize the Decision Matrix: Standardize the decision matrix to avoid unfair results due to the differences in value ranges of different attributes. Standardization methods can include max-min normalization, z-score normalization, etc. After standardization, each attribute's value will fall within the range of 0 to 1.
     </ul>
-    <pre><code>
+    <pre><code class="language-r">
             #Normalize the decision matrix according to the standard operation defined by TOPSIS
             NumRows<-nrow(DecisionMatrix);
             NumCols<-ncol(DecisionMatrix);
@@ -537,7 +540,7 @@
     <ul>
         3. Identify the Ideal and Anti-Ideal Solutions: In the standardized decision matrix, find the ideal solution (A+) and anti-ideal solution (A-). The ideal solution is the maximum value for each attribute, while the anti-ideal solution is the minimum value for each attribute.
     </ul>
-    <pre><code>
+    <pre><code class="language-r">
             # Determine the ideal A_plus and anti-ideal solution A_minus
             A_plus<-c(0,0,0,0);
             for ( j in c(1:NumCols))
@@ -558,7 +561,7 @@
     <ul>
         4. Calculate the Similarity to Ideal and Anti-Ideal Solutions: Compute the distance of each alternative from the ideal solution (referred to as S+) and the distance from the anti-ideal solution (referred to as S-). Usually, Euclidean distance or Manhattan distance is used to calculate similarity.
     </ul>
-    <pre><code>
+    <pre><code class="language-r">
         # Calculate the seperation measure for each alternative
 
         # Distances toward ideal solution A_plus
@@ -583,7 +586,7 @@
     <ul>
         5. Calculate the Relative Closeness: Use S+ and S- to calculate the relative closeness of each alternative to the ideal solution, usually represented by Ti.
     </ul>
-    <pre><code>
+    <pre><code class="language-r">
             # Calculate the relative closeness (of each alternative) to the ideal solution, which is the Tie-Jin Xi-Shu
             RC<-c(1:NumRows);
             for( i in c(1:NumRows) )
@@ -601,22 +604,25 @@
             RC[order(RC, decreasing=TRUE)];
         </cpde></pre>
 
-<h2>Conclusion</h2>
+    <h2>Conclusion</h2>
     <p>
-    In this MCDM analysis, we explored three prominent methods: SAW, Max Standardization, and Geo-Mean. Additionally, we examined TOPSIS.
+        In this MCDM analysis, we explored three prominent methods: SAW, Max Standardization, and Geo-Mean. Additionally, we examined TOPSIS.
     </p>
     <p>
-    The SAW method allowed decision-makers to assign weights to attributes and rank alternatives based on weighted values. Max Standardization ensured a fair comparison of alternatives with different value ranges, while Geo-Mean provided a balanced evaluation.</p>
+        The SAW method allowed decision-makers to assign weights to attributes and rank alternatives based on weighted values. Max Standardization ensured a fair comparison of alternatives with different value ranges, while Geo-Mean provided a balanced evaluation.</p>
     <p>
-    TOPSIS ranked alternatives based on their similarity to ideal and anti-ideal solutions, aiding decision-makers in understanding strengths and weaknesses.
+        TOPSIS ranked alternatives based on their similarity to ideal and anti-ideal solutions, aiding decision-makers in understanding strengths and weaknesses.
     </p>
     <p>
-    Each method's effectiveness depends on the decision context, attribute weights, and standardization. MCDM provides valuable tools for complex decision scenarios in various fields.
+        Each method's effectiveness depends on the decision context, attribute weights, and standardization. MCDM provides valuable tools for complex decision scenarios in various fields.
     </p>
 </div>
+
 <div style="text-align: right;">
     <h3><a href="https://sherry-liu.com/">Homepage</a></h3>
     <h3><a href="#top">Go to Top</a></h3>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+
 </body>
 </html>
